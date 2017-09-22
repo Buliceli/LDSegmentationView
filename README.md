@@ -1,37 +1,27 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/Buliceli/LDSegmentationView/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
+Installation【安装】
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+From CocoaPods【使用CocoaPods】
 
-### Jekyll Themes
+pod search LDSegmentationView
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Buliceli/LDSegmentationView/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Use 【使用】
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSArray * titles = @[@"资讯",@"体育",@"财经",@"游戏"];
+    NSMutableArray * viewControllers = [NSMutableArray array];
+    for (int i = 0; i < 4; i++) {
+        UIViewController * vc = [[UIViewController alloc]init];
+        [viewControllers addObject:vc];
+    }
+    LDDStyle * style = [[LDDStyle alloc]init];
+    style.isShowCover = YES;
+    style.isShowBottomLine = YES;
+    style.selectedColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+    style.isNeedScale = YES;
+    LDPageView * pageView = [[LDPageView alloc]initWithFrame:self.view.bounds titles:titles viewControllers:viewControllers parentView:self style:style];
+    
+    [self.view addSubview:pageView];
+}
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```
